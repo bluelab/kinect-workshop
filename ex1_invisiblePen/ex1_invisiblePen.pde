@@ -5,8 +5,8 @@ SimpleOpenNI kinect;
 PImage depthImage;
 
 //set the range for the depth inspection 
-int lowestValue=600;
-int highestValue=800;
+int lowestValue=500;
+int highestValue=850;
 
 //this will be a running average and the current values
 float closestX, lastX;
@@ -14,7 +14,7 @@ float closestY, lastY;
 
 // create arrays to store recent
 // closest x- and y-values for averaging
-int averagingLenght=5;
+int averagingLenght=10;
 int[] recentXValues = new int[averagingLenght];
 int[] recentYValues = new int[averagingLenght];
 
@@ -63,12 +63,15 @@ void draw() {
   }
 
   // closestX and closestY become  
-  // a running average with currentX and currentY  
-  closestX = (recentXValues[0] + recentXValues[1] + recentXValues[2]) / 3;
-  closestY = (recentYValues[0] + recentYValues[1] + recentYValues[2]) / 3;
+  // a running average with currentX and currentY 
+  closestX =0;
+  closestY =0;
+ for(int i=0 ; i< averagingLenght; i++){ 
+  closestX =+ recentXValues[i]/3;
+  closestY =+ recentYValues[i]/3;
 
   //draw the depth image
-  // image(depthImage, 0, 0);
+  //image(depthImage, 0, 0);
 
   // "linear interpolation", i.e.   
   // smooth transition between last point   
