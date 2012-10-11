@@ -3,3 +3,4 @@
 
 Here you will find some simple examples of the kinect workshop you followed.
 
+Here a summary of the workshop it self: http://sinlabkinect.blogspot.ch/
